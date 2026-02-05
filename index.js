@@ -1,26 +1,15 @@
 let score1 = 0
 let score2 = 0
-let turn
 let target = Math.floor(Math.random() * 50) + 50
 let scoreTurn = 0
-let playerNow = `player${Math.floor(Math.random() * 2) + 1}`
+let playerNow = `player ${Math.floor(Math.random() * 2) + 1}`
 
-function diceRoll(player) {
+function diceRoll() {
     const dice1 = Math.floor(Math.random() * 6) + 1
     const dice2 = Math.floor(Math.random() * 6) + 1
-    console.log(`Dices: ${dice1} + ${dice2}, player ${player}`)
     document.querySelector("#dices").textContent = `Dices: ${dice1} + ${dice2}.`
-    if (dice1 === dice2) {
-        scoreTurn = 0
-    }
-    else {
-        scoreTurn += (dice1 + dice2)
-    }
-}
-
-function turnGame(player) {
-    diceRoll(player)
-
+    if (dice1 === dice2) scoreTurn = 0
+    else scoreTurn += (dice1 + dice2)
 }
 
 function pass() {
@@ -47,7 +36,7 @@ function startGame() {
         document.querySelector("#score2").textContent = `Score Player 2 = ${score2} ← is the winner.`
         document.querySelector(".button").style.display = "none"
     }
-    turnGame(playerNow)
+    diceRoll(playerNow)
 }
 
 document.querySelector("#maxScore").textContent = `The max score is: ${target}`
