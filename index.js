@@ -11,6 +11,7 @@ function diceRoll() {
     if (dice1 === dice2) scoreTurn = 0
     else scoreTurn += (dice1 + dice2)
     document.querySelector("#scoreTurn").textContent = `Score Turn =  ${scoreTurn}.`
+    chking()
 }
 
 function pass() {
@@ -26,9 +27,10 @@ function pass() {
     }
     document.querySelector("#nowTurn").textContent = `Now it's the turn of: ${playerNow}`
     scoreTurn = 0
+    chking()
 }
 
-function startGame() {
+function chking() {
     if (score1 >= target) {
         document.querySelector("#winner").textContent = `Our winner is Player 1`
         document.querySelector(".button").style.display = "none"
@@ -37,6 +39,10 @@ function startGame() {
         document.querySelector("#winner").textContent = `Our winner is Player 2`
         document.querySelector(".button").style.display = "none"
     }
+}
+
+function startGame() {
+    chking()
     diceRoll(playerNow)
 }
 
