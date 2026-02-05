@@ -10,18 +10,19 @@ function diceRoll() {
     document.querySelector("#dices").textContent = `Dices: ${dice1} + ${dice2}.`
     if (dice1 === dice2) scoreTurn = 0
     else scoreTurn += (dice1 + dice2)
+    document.querySelector("#scoreTurn").textContent = `Score Turn =  ${scoreTurn}.`
 }
 
 function pass() {
     if (playerNow === "player1") {
         playerNow = "player2"
         score1 += scoreTurn
-        document.querySelector("#score1").textContent = `Score Player 1 = ${score1}`
+        document.querySelector("#score1").textContent = score1
     }
     else {
         playerNow = "player1"
         score2 += scoreTurn
-        document.querySelector("#score2").textContent = `Score Player 1 = ${score2}`
+        document.querySelector("#score2").textContent = score2
     }
     document.querySelector("#nowTurn").textContent = `Now it's the turn of: ${playerNow}`
     scoreTurn = 0
@@ -29,11 +30,11 @@ function pass() {
 
 function startGame() {
     if (score1 >= target) {
-        document.querySelector("#score1").textContent = `Score Player 1 = ${score1} ← is the winner.`
+        document.querySelector("#winner").textContent = `Our winner is Player 1`
         document.querySelector(".button").style.display = "none"
     }
     if (score2 >= target) {
-        document.querySelector("#score2").textContent = `Score Player 2 = ${score2} ← is the winner.`
+        document.querySelector("#winner").textContent = `Our winner is Player 2`
         document.querySelector(".button").style.display = "none"
     }
     diceRoll(playerNow)

@@ -5,21 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Game</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
 </head>
 
 <body>
-    <h1 id="maxScore"></h1>
-    <h2 id="nowTurn"></h2>
-    <h3 id="score1">Score Player 1 = 0</h3>
-    <h3 id="score2">Score Player 2 = 0</h3>
-    <h3 id="scoreTurn">Score Turn = 0</h3>
-    <h2 id="dices"></h2>
-    <section class="button">
-        <button onclick="startGame()">Roll</button>
-        <button onclick="pass()">Pass</button>
-    </section>
+    <main>
+        <h1 id="maxScore"></h1>
+        <h2 id="nowTurn"></h2>
+        <div id="player1" class="players">
+            <h2>Player 1</h2>
+            <h3 id="score1">0</h3>
+        </div>
+        <div id="player2" class="players">
+            <h2>Player 2</h2>
+            <h3 id="score2">0</h3>
+        </div>
+        <h1 id="winner"></h1>
+        <h3 id="scoreTurn">Score Turn = 0</h3>
+        <h2 id="dices"></h2>
+        <section id="button">
+            <button onclick="startGame()">Roll</button>
+            <button onclick="pass()">Pass</button>
+        </section>
+    </main>
 </body>
 
 </html>
